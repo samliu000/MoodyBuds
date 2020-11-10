@@ -29,7 +29,7 @@
         android:layout_toEndOf="@+id/profile"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="@string/name" />
 
     <SeekBar
         android:id="@+id/moodBar"
@@ -53,6 +53,6 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="34dp"
-        android:text="Preview text about their day" />
+        android:text="@string/preview_text_about_their_day" />
 
 </RelativeLayout>

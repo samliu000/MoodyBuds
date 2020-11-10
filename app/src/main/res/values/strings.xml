@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MoodyBuds</string>
+    <string name="preview_text_about_their_day">Preview text about their day</string>
+    <string name="name">Name</string>
+    <string name="todo">TODO</string>
+    <string name="name">Name</string>
 </resources>

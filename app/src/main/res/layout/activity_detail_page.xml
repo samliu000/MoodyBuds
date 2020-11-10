@@ -25,7 +25,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="40dp"
             android:layout_marginTop="38dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/todo" />
 
         <EditText
             android:id="@+id/personName"
@@ -39,7 +40,8 @@
             android:layout_toEndOf="@+id/profile"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="@string/name"
+            android:autofillHints="" />
 
         <SeekBar
             android:id="@+id/moodBar"
