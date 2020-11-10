@@ -53,9 +53,9 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // needs to be defined
-        MainScreen profile = profileCards.get(position);
-        TextView textView = holder.personName;
-        textView.setText(profile.getName());
+       // MainScreen profile = profileCards.get(position);
+        //TextView textView = holder.personName;
+        //textView.setText(profile.getName());
 
     }
 

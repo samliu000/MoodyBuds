@@ -22,7 +22,7 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main_screen);
         // pull information from database
         // transform that info into ProfileCard objects
-        listOfPeople.add(blahblahblah);
+        //listOfPeople.add(blahblahblah);
     }
 
 }
