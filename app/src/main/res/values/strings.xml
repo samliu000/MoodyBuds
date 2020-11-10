@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">MoodyBuds</string>
-    <string name="what_has_been_the_best_part_of_your_week">What has been the best part of your week?</string>
-    <string name="enter_text_here">Enter text here...</string>
-    <string name="groupname">GroupName</string>
-    <string name="prompt1">Prompt1</string>
 </resources>
