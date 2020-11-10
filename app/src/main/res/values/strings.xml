@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">MoodyBuds</string>
-    <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
-    <string name="facebook_application_id" translatable="false">369219571075033</string>
 </resources>
