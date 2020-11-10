@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainScreen"></activity>
+        <activity android:name=".DetailPage"></activity>
         <activity android:name=".ProfileCard" />
         <activity android:name=".MainActivity">
             <intent-filter>
