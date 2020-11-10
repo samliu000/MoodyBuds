@@ -6,40 +6,88 @@
     android:layout_height="match_parent"
     tools:context=".DetailPage">
 
+    <RelativeLayout
+        android:id="@+id/profileCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GroupName"
+        android:layout_alignStart="@+id/GroupName"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        tools:context=".ProfileCard">
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="60dp"
+            android:layout_height="62dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="38dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <EditText
+            android:id="@+id/personName"
+            android:layout_width="253dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="37dp"
+            android:layout_toEndOf="@+id/profile"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <SeekBar
+            android:id="@+id/moodBar"
+            android:layout_width="242dp"
+            android:layout_height="31dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="51dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="59dp"
+            android:layout_toEndOf="@+id/profile" />
+
+    </RelativeLayout>
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textbox3"
         android:layout_width="370dp"
         android:layout_height="120dp"
         android:layout_below="@+id/Prompt1"
-        android:layout_alignParentStart="false"
+        android:layout_alignStart="@+id/GroupName"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="215dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="17dp"
         android:hint="@string/enter_text_here" />
 
     <TextView
         android:id="@+id/GroupName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="-9dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/groupname" />
 
     <TextView
         android:id="@+id/Prompt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/GroupName"
-        android:layout_alignParentStart="false"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="47dp"
-        android:text="@string/prompt1" />
+        android:layout_below="@+id/profileCard"
+        android:layout_alignStart="@+id/GroupName"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/what_has_been_the_best_part_of_your_week" />
 
 </RelativeLayout>
