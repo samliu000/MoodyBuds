@@ -1,8 +1,8 @@
 package com.example.moodybuds;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileCard extends AppCompatActivity {
 
