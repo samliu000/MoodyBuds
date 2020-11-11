@@ -1,18 +1,9 @@
 package com.example.moodybuds;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
-import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseUserMetadata;
@@ -24,6 +15,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainScreen extends AppCompatActivity {
 
@@ -46,7 +40,7 @@ public class MainScreen extends AppCompatActivity {
 
         // initialize list of people and current firebase user
         listOfPeople = new ArrayList<>();
-        currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+        currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         // create database references
         mRootRef = FirebaseDatabase.getInstance().getReference();
@@ -65,6 +59,7 @@ public class MainScreen extends AppCompatActivity {
             mUserRef.child(userUID).setValue(user);
         }
 
+
     }
 
     @Override
@@ -77,10 +72,16 @@ public class MainScreen extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                // for each person in the database,
+                // populate/update list of people
+                listOfPeople.clear();
                 for(DataSnapshot person: snapshot.getChildren()) {
                     listOfPeople.add(person.getValue(ProfileCard.class));
                 }
+
+                // recycler view stuff here
+
+
+                // Debug to print list of people
                 for(ProfileCard i: listOfPeople) {
                     Log.d("MAINSCREEN", i.toString());
                 }
