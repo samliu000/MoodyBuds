@@ -18,6 +18,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainScreen extends AppCompatActivity {
 
@@ -26,10 +28,11 @@ public class MainScreen extends AppCompatActivity {
     DatabaseReference mRootRef;
     DatabaseReference mUserRef;
     String userUID;
+    MainScreenAdapter adapter;
 
     public MainScreen() {
 
-        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +56,17 @@ public class MainScreen extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUserMetadata metadata = auth.getCurrentUser().getMetadata();
 
-        // if new user, add their data to the database
-        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
-            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", userUID);
-            mUserRef.child(userUID).setValue(user);
-        }
+//        // if new user, add their data to the database
+//        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
+//            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", userUID);
+//            mUserRef.child(userUID).setValue(user);
+//        }
 
-
+        // Set adapter
+        RecyclerView rvProfile = (RecyclerView) findViewById(R.id.rvMain);
+        adapter = new MainScreenAdapter(listOfPeople);
+        rvProfile.setAdapter(adapter);
+        rvProfile.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -78,14 +85,16 @@ public class MainScreen extends AppCompatActivity {
                     listOfPeople.add(person.getValue(ProfileCard.class));
                 }
 
-                // recycler view stuff here
-
-
                 // Debug to print list of people
                 for(ProfileCard i: listOfPeople) {
                     Log.d("MAINSCREEN", i.toString());
                 }
                 Log.d("MAINSCREEN", "Num of people: " + listOfPeople.size());
+
+                // recycler view stuff here
+                adapter.notifyDataSetChanged();
+
+
             }
 
             @Override
