@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 Log.i("SIGN_IN", "user is " + user);
                 Intent toMain = new Intent(this, MainScreen.class);
+//                toMain.putExtra("userUID", user.getUid());
                 startActivity(toMain);
 
 

@@ -3,14 +3,19 @@ package com.example.moodybuds;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseUserMetadata;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +31,7 @@ public class MainScreen extends AppCompatActivity {
     FirebaseUser currentFirebaseUser;
     DatabaseReference mRootRef;
     DatabaseReference mUserRef;
+    String userUID;
 
     public MainScreen() {
 
@@ -36,21 +42,28 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
+        Intent intent = getIntent();
+
+        // initialize list of people and current firebase user
         listOfPeople = new ArrayList<>();
         currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+
+        // create database references
         mRootRef = FirebaseDatabase.getInstance().getReference();
         mUserRef = mRootRef.child("users");
 
-//        // populate database with dummy variables
-//        ProfileCard Samuel = new ProfileCard("Samuel", 10, "Hi I'm Sam");
-//        ProfileCard Kimberly = new ProfileCard("Kimberly", 10, "Hi I'm Kimberly");
-//        List<ProfileCard> users = new ArrayList<>();
-//        users.add(Samuel);
-//        users.add(Kimberly);
-//        for(ProfileCard person: users) {
-//            String key = mUserRef.push().getKey();
-//            mUserRef.child(key).setValue(person);
-//        }
+        // get userUID
+        userUID = currentFirebaseUser.getUid();
+
+        // add to database
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUserMetadata metadata = auth.getCurrentUser().getMetadata();
+
+        // if new user, add their data to the database
+        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
+            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 10, "Hi I'm Sam", userUID);
+            mUserRef.child(userUID).setValue(user);
+        }
 
     }
 

@@ -7,20 +7,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileCard {
 
-    public String name;
-    public int ratingNumber;
-    public String previewText;
+    private String name;
+    private int ratingNumber;
+    private String previewText;
+    private String UID;
 
     public ProfileCard() {
         name = "NULL";
         ratingNumber = 0;
         previewText = "NULL";
+        UID = "";
     }
 
-    public ProfileCard(String name, int ratingNumber, String previewText){
+    public ProfileCard(String name, int ratingNumber, String previewText, String UID){
         this.name = name;
         this.ratingNumber = ratingNumber;
         this.previewText = previewText;
+        this.UID = UID;
     }
 
     public String getName() {
@@ -38,4 +41,8 @@ public class ProfileCard {
     public String toString() {
         return "(ProfileCard) Name: " + name + "RatingNumber: " + ratingNumber + "PreviewText: " + previewText;
     }
+    public String getUID() {
+        return UID;
+    }
+
 }
