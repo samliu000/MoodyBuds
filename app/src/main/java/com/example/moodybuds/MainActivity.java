@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d("SIGN_IN", "Initial user is " + currentUser);
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build(),
@@ -51,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
                 // Successfully signed in
                 Log.i("SIGN_IN", "BEFORE");
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                Log.i("SIGN_IN", "AFTER");
+                Log.i("SIGN_IN", "user is " + user);
+                Intent toMain = new Intent(this, MainScreen.class);
+                startActivity(toMain);
+
 
             } else {
                 // Sign in failed. If response is null the user canceled the
