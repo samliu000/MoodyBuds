@@ -39,21 +39,27 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MainScreenAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        // This needs to be fixed
         View contactView = inflater.inflate(R.layout.activity_profile_card, parent, false);
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // Needs to be fixed
-        //MainScreen profile = profileCards.get(position);
-        //TextView textView = holder.personName;
-        //textView.setText(profile.getName());
+    public void onBindViewHolder(MainScreenAdapter.ViewHolder holder, int position) {
+        ProfileCard profile = profileCards.get(position);
+        //Set item views based on views and data model
+        TextView name = holder.personName;
+        name.setText(profile.getName());
+        TextView preview = holder.previewText;
+        preview.setText(profile.getPreviewText());
+        SeekBar mood = holder.moodBar;
+//         need to figure out mood bar
+        mood.setProgress(profile.getRatingNumber());
+        // ImageView image = holder.profile;
+        // image.
 
     }
 
@@ -61,7 +67,6 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
     public int getItemCount() {
         return profileCards.size();
     }
-
 
 
 }

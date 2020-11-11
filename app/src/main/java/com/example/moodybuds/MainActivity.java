@@ -25,19 +25,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        Log.d("SIGN_IN", "Initial user is " + currentUser);
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.TwitterBuilder().build());
+        if(currentUser == null) {
+            Log.d("SIGN_IN", "Initial user is " + currentUser);
+            List<AuthUI.IdpConfig> providers = Arrays.asList(
+                    new AuthUI.IdpConfig.EmailBuilder().build(),
+                    new AuthUI.IdpConfig.GoogleBuilder().build(),
+                    new AuthUI.IdpConfig.TwitterBuilder().build());
 
-        // Create and launch sign-in intent
-        startActivityForResult(
-                AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .build(),
-                RC_SIGN_IN);
+            // Create and launch sign-in intent
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setAvailableProviders(providers)
+                            .build(),
+                    RC_SIGN_IN);
+        }
+        else {
+            Intent toMain = new Intent(this, MainScreen.class);
+//                toMain.putExtra("userUID", user.getUid());
+            startActivity(toMain);
+        }
+
 
     }
 
