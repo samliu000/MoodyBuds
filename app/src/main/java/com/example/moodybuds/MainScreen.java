@@ -61,7 +61,7 @@ public class MainScreen extends AppCompatActivity {
 
         // if new user, add their data to the database
         if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
-            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 10, "Hi I'm Sam", userUID);
+            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", userUID);
             mUserRef.child(userUID).setValue(user);
         }
 
