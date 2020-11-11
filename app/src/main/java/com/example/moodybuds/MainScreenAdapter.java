@@ -8,12 +8,10 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
-
-import java.util.List;
 
 public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.ViewHolder> {
 
@@ -52,8 +50,8 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // needs to be defined
-       // MainScreen profile = profileCards.get(position);
+        // Needs to be fixed
+        //MainScreen profile = profileCards.get(position);
         //TextView textView = holder.personName;
         //textView.setText(profile.getName());
 
