@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -38,6 +39,13 @@ public class UserDetailPageActivity extends AppCompatActivity {
         currUserMoodBar = findViewById(R.id.userMoodBar);
         currUserPos = findViewById(R.id.userPos);
         currUserNeg = findViewById(R.id.userNeg);
+
+        currUserMoodBar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
 
         // unwrap profile
         profile = (ProfileCard) Parcels.unwrap(getIntent().getParcelableExtra(ProfileCard.class.getName()));
