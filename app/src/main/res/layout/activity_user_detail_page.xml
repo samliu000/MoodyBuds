@@ -10,57 +10,51 @@
         android:id="@+id/prompt2"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textbox"
-        android:layout_alignStart="@+id/groupName"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextTextPersonName2"
+        android:layout_alignStart="@+id/Prompt1"
         android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginEnd="26dp"
         android:text="@string/something_you_are_grateful_for" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textbox2"
-        android:layout_width="344dp"
-        android:layout_height="69dp"
-        android:layout_below="@+id/prompt2"
-        android:layout_alignStart="@+id/groupName"
+    <TextView
+        android:id="@+id/prompt3"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextTextPersonName3"
+        android:layout_alignStart="@+id/Prompt1"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="-69dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="33dp"
-        android:hint="@string/enter_text_here" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="26dp"
+        android:text="@string/something_negative" />
 
     <TextView
         android:id="@+id/prompt"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textbox3"
         android:layout_alignStart="@+id/groupName"
+        android:layout_alignBottom="@+id/editTextTextPersonName3"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="27dp"
+        android:layout_marginBottom="392dp"
         android:text="@string/something_negative" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textbox"
-        android:layout_width="344dp"
-        android:layout_height="69dp"
-        android:layout_below="@+id/prompt"
-        android:layout_alignStart="@+id/groupName"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="-69dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="33dp"
-        android:hint="@string/enter_text_here" />
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#AFEBF3"
+        app:srcCompat="?attr/homeAsUpIndicator"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/groupName"
@@ -70,9 +64,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="103dp"
         android:layout_marginTop="29dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="28dp"
         android:background="#FFFFFF"
         android:backgroundTint="#B0EDF4"
         android:text="@string/group_name"
@@ -114,21 +108,52 @@
         android:layout_marginEnd="26dp"
         android:text="@string/something_positive" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textbox3"
+    <TextView
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="344dp"
+        android:layout_height="69dp"
+        android:layout_below="@+id/prompt2"
+        android:layout_alignStart="@+id/groupName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-69dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="33dp"
+        android:ems="10"
+        android:text="@string/readtext"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="344dp"
+        android:layout_height="69dp"
+        android:layout_below="@+id/prompt3"
+        android:layout_alignStart="@+id/groupName"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-69dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="33dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:text="@string/readtext" />
+
+    <TextView
+        android:id="@+id/editTextTextPersonName3"
         android:layout_width="344dp"
         android:layout_height="69dp"
         android:layout_below="@+id/Prompt1"
         android:layout_alignStart="@+id/groupName"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="false"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="-70dp"
+        android:layout_marginStart="-69dp"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="34dp"
-        android:hint="@string/enter_text_here" />
+        android:layout_marginEnd="33dp"
+        android:ems="10"
+        android:text="@string/readtext"
+        android:autofillHints="" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <TextView
+        android:id="@+id/editTextTextPersonName4"
         android:layout_width="257dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/groupName"
@@ -137,18 +162,7 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="33dp"
-        android:hint="@string/name" />
-
-    <Button
-        android:id="@+id/updateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textbox2"
-        android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#A2E3EC"
-        android:text="@string/update" />
+        android:ems="10"
+        android:text="Name" />
 
 </RelativeLayout>
