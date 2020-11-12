@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailPage">
+    tools:context=".UserDetailPageActivity">
 
     <TextView
         android:id="@+id/prompt2"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/viewText2"
+        android:layout_below="@+id/userNeg"
         android:layout_alignStart="@+id/Prompt1"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
@@ -22,7 +22,7 @@
         android:id="@+id/prompt3"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/viewText1"
+        android:layout_below="@+id/userPos"
         android:layout_alignStart="@+id/Prompt1"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
@@ -35,7 +35,7 @@
         android:layout_width="366dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/groupName"
-        android:layout_alignBottom="@+id/viewText1"
+        android:layout_alignBottom="@+id/userPos"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
@@ -74,7 +74,7 @@
         app:autoSizeTextType="uniform" />
 
     <ImageView
-        android:id="@+id/currUserProfilePic"
+        android:id="@+id/userProfilePic"
         android:layout_width="68dp"
         android:layout_height="64dp"
         android:layout_alignParentStart="true"
@@ -85,7 +85,7 @@
         android:contentDescription="@string/todo" />
 
     <SeekBar
-        android:id="@+id/currUserMoodBar"
+        android:id="@+id/userMoodBar"
         android:layout_width="242dp"
         android:layout_height="31dp"
         android:layout_alignParentTop="true"
@@ -98,7 +98,7 @@
         android:id="@+id/Prompt1"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/currUserMoodBar"
+        android:layout_below="@+id/userMoodBar"
         android:layout_alignStart="@+id/groupName"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -109,7 +109,7 @@
         android:text="@string/something_positive" />
 
     <TextView
-        android:id="@+id/viewText3"
+        android:id="@+id/userGrateful"
         android:layout_width="344dp"
         android:layout_height="69dp"
         android:layout_below="@+id/prompt2"
@@ -123,7 +123,7 @@
         android:autofillHints="" />
 
     <TextView
-        android:id="@+id/viewText2"
+        android:id="@+id/userNeg"
         android:layout_width="344dp"
         android:layout_height="69dp"
         android:layout_below="@+id/prompt3"
@@ -138,7 +138,7 @@
         android:text="@string/readtext" />
 
     <TextView
-        android:id="@+id/viewText1"
+        android:id="@+id/userPos"
         android:layout_width="344dp"
         android:layout_height="69dp"
         android:layout_below="@+id/Prompt1"
@@ -153,7 +153,7 @@
         android:autofillHints="" />
 
     <TextView
-        android:id="@+id/viewName"
+        android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/groupName"

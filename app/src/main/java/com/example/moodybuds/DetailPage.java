@@ -48,7 +48,7 @@ public class DetailPage extends AppCompatActivity {
         // attach everything
         currUserName = findViewById(R.id.currUserName);
         currUserGrateful = findViewById(R.id.currUserGrateful);
-        currUserMoodBar = findViewById(R.id.currUserMoodBar);
+        currUserMoodBar = findViewById(R.id.userMoodBar);
         currUserPos = findViewById(R.id.currUserPos);
         currUserNeg = findViewById(R.id.currUserNeg);
         updateButton = findViewById(R.id.updateButton);

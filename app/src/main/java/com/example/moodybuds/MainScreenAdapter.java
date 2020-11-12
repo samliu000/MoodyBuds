@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,32 +29,45 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
         this.context = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        RelativeLayout profileCard;
         public TextView personName;
         public SeekBar moodBar;
-        public ImageView profile;
+        public ImageView profilePhoto;
         public TextView previewText;
+
+
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             personName = (TextView) itemView.findViewById(R.id.personName);
             moodBar = (SeekBar) itemView.findViewById(R.id.moodBar);
-            profile = (ImageView) itemView.findViewById(R.id.profile);
+            profilePhoto = (ImageView) itemView.findViewById(R.id.profile);
             previewText = (TextView) itemView.findViewById(R.id.previewText);
-
-            itemView.setOnClickListener(this);
+            profileCard = (RelativeLayout) itemView.findViewById(R.id.profileCard);
         }
 
-        @Override
-        public void onClick(View view) {
-            int position = getAdapterPosition();
-            if (position != RecyclerView.NO_POSITION) {
-                ProfileCard profile1 = profileCards.get(position);
-                Intent intent = new Intent(view.getContext(), UserDetailPageActivity.class);
-                intent.putExtra(ProfileCard.class.getName(), Parcels.wrap(profile1));
-                view.getContext().startActivity(intent);
-            }
+        public void bind(final ProfileCard profile) {
+            //Set item views based on views and data model
+            personName.setText(profile.getName());
+            moodBar.setProgress(profile.getRatingNumber());
+//            if(profile.getPhotoURLString() != "") {
+//                GlideApp.with(context)
+//                        .load("https://square.github.io/picasso/static/sample.png")
+//                        .into(profilePhoto);
+//            }
+            previewText.setText(profile.getGrateful());
+
+            profileCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, UserDetailPageActivity.class);
+                    intent.putExtra(ProfileCard.class.getName(), Parcels.wrap(profile));
+                    Toast.makeText(context, profile.getName(), Toast.LENGTH_SHORT).show();
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
@@ -70,22 +84,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
     @Override
     public void onBindViewHolder(MainScreenAdapter.ViewHolder holder, int position) {
         ProfileCard profile = profileCards.get(position);
-        //Set item views based on views and data model
-        TextView name = holder.personName;
-        name.setText(profile.getName());
-        TextView preview = holder.previewText;
-        preview.setText(profile.getGrateful());
-        SeekBar mood = holder.moodBar;
-//         need to figure out mood bar
-        mood.setProgress(profile.getRatingNumber());
-
-        ImageView image = holder.profile;
-
-        if(profile.getPhotoURLString() != "") {
-            GlideApp.with(context)
-                    .load("https://square.github.io/picasso/static/sample.png")
-                    .into(image);
-        }
+        holder.bind(profile);
 
     }
 
