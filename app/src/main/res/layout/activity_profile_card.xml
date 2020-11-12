@@ -18,31 +18,18 @@
         app:srcCompat="@drawable/com_facebook_profile_picture_blank_square"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <EditText
-        android:id="@+id/personName"
-        android:layout_width="253dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="37dp"
-        android:layout_toEndOf="@+id/profile"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
-
     <SeekBar
         android:id="@+id/moodBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="242dp"
         android:layout_height="31dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/personName"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="59dp"
-        android:layout_toEndOf="@+id/profile"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"/>
+        android:layout_centerVertical="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="60dp"
+        android:layout_toEndOf="@+id/profile" />
 
     <TextView
         android:id="@+id/previewText"
@@ -51,9 +38,19 @@
         android:layout_below="@+id/moodBar"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="31dp"
         android:layout_marginBottom="34dp"
         android:text="Preview text about their day" />
+
+    <TextView
+        android:id="@+id/personName"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="33dp"
+        android:layout_toEndOf="@+id/profile"
+        android:text="Name" />
 
 </RelativeLayout>
