@@ -46,11 +46,11 @@ public class DetailPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detail_page);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.ic_action_bar);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        setContentView(R.layout.activity_detail_page);
 
         // attach everything
         currUserName = findViewById(R.id.currUserName);
