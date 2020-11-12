@@ -1,13 +1,17 @@
 package com.example.moodybuds;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import com.firebase.ui.auth.AuthUI;
@@ -22,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailPage extends AppCompatActivity {
@@ -32,6 +37,7 @@ public class DetailPage extends AppCompatActivity {
     EditText currUserPos;
     EditText currUserNeg;
     EditText currUserGrateful;
+    ImageView currUserPhoto;
     Context context;
     FirebaseUser currentFirebaseUser;
     DatabaseReference mUserRef;
@@ -52,6 +58,7 @@ public class DetailPage extends AppCompatActivity {
         currUserPos = findViewById(R.id.currUserPos);
         currUserNeg = findViewById(R.id.currUserNeg);
         updateButton = findViewById(R.id.updateButton);
+        currUserPhoto = findViewById(R.id.currUserProfilePic);
         context = this;
         currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         mUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentFirebaseUser.getUid());
@@ -69,6 +76,14 @@ public class DetailPage extends AppCompatActivity {
 
                 Intent toMain = new Intent(context, MainScreen.class);
                 startActivity(toMain);
+            }
+        });
+
+        currUserPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(openGalleryIntent, 1000);
             }
         });
     }
@@ -97,6 +112,15 @@ public class DetailPage extends AppCompatActivity {
                 // ...
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000 && resultCode == Activity.RESULT_OK) {
+            Uri imageUrl = data.getData();
+            currUserPhoto.setImageURI(imageUrl);
+        }
     }
 
     @Override

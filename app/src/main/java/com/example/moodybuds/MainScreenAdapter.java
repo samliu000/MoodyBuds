@@ -2,6 +2,7 @@ package com.example.moodybuds;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -19,12 +20,17 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import org.parceler.Parcels;
 
 public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.ViewHolder> {
 
     Context context;
     private List<ProfileCard> profileCards;
+    FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
     public MainScreenAdapter(List<ProfileCard> cards, Context context){
         profileCards = cards;
@@ -56,14 +62,13 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
         }
 
         public void bind(final ProfileCard profile) {
+            // get current user
+            currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
             //Set item views based on views and data model
             personName.setText(profile.getName());
             moodBar.setProgress(profile.getRatingNumber());
-//            if(profile.getPhotoURLString() != "") {
-//                GlideApp.with(context)
-//                        .load(profile.getPhotoURLString());
-//                        .into(profilePhoto);
-//            }
+//            Glide.with(context).load(profile.getPhotoURLString()).into(profilePhoto);
             previewText.setText(profile.getGrateful());
 
             profileCard.setOnClickListener(new View.OnClickListener() {
