@@ -149,9 +149,34 @@
         android:layout_below="@+id/currUserGrateful"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="153dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="267dp"
+        android:layout_marginTop="18dp"
         android:backgroundTint="#A2E3EC"
         android:text="@string/update" />
+
+    <Switch
+        android:id="@+id/toTalk"
+        android:layout_width="155dp"
+        android:layout_height="49dp"
+        android:layout_below="@+id/currUserGrateful"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="#FFFFFF"
+        android:buttonTint="#2196F3"
+        android:showText="true"
+        android:splitTrack="false"
+        android:text="Need someone to talk to"
+        android:thumbTint="#93DEE7"
+        android:trackTint="@color/colorAccent"
+        android:visibility="visible" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="61dp" />
 
 </RelativeLayout>

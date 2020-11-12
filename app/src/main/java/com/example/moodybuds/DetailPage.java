@@ -46,6 +46,7 @@ public class DetailPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.ic_action_bar);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -86,6 +87,7 @@ public class DetailPage extends AppCompatActivity {
                 startActivityForResult(openGalleryIntent, 1000);
             }
         });
+
     }
 
     @Override
