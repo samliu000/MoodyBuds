@@ -46,6 +46,8 @@ public class DetailPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detail_page);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.ic_action_bar);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -59,6 +61,7 @@ public class DetailPage extends AppCompatActivity {
         currUserNeg = findViewById(R.id.currUserNeg);
         updateButton = findViewById(R.id.updateButton);
         currUserPhoto = findViewById(R.id.currUserProfilePic);
+
         context = this;
         currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         mUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentFirebaseUser.getUid());
