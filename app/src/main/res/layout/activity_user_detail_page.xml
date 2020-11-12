@@ -74,7 +74,7 @@
         app:autoSizeTextType="uniform" />
 
     <ImageView
-        android:id="@+id/profile2"
+        android:id="@+id/currUserProfilePic"
         android:layout_width="68dp"
         android:layout_height="64dp"
         android:layout_alignParentStart="true"
@@ -85,7 +85,7 @@
         android:contentDescription="@string/todo" />
 
     <SeekBar
-        android:id="@+id/moodBar2"
+        android:id="@+id/currUserMoodBar"
         android:layout_width="242dp"
         android:layout_height="31dp"
         android:layout_alignParentTop="true"
@@ -98,7 +98,7 @@
         android:id="@+id/Prompt1"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/moodBar2"
+        android:layout_below="@+id/currUserMoodBar"
         android:layout_alignStart="@+id/groupName"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"

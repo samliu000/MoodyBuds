@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
                             .setAvailableProviders(providers)
+                            .setLogo(R.mipmap.ic_launcher_round)
                             .build(),
                     RC_SIGN_IN);
         }

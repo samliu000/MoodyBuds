@@ -10,7 +10,7 @@
         android:id="@+id/prompt2"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textbox"
+        android:layout_below="@+id/currUserNeg"
         android:layout_alignStart="@+id/groupName"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -21,7 +21,7 @@
         android:text="@string/something_you_are_grateful_for" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textbox2"
+        android:id="@+id/currUserGrateful"
         android:layout_width="344dp"
         android:layout_height="69dp"
         android:layout_below="@+id/prompt2"
@@ -38,7 +38,7 @@
         android:id="@+id/prompt"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textbox3"
+        android:layout_below="@+id/currUserPos"
         android:layout_alignStart="@+id/groupName"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -49,7 +49,7 @@
         android:text="@string/something_negative" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textbox"
+        android:id="@+id/currUserNeg"
         android:layout_width="344dp"
         android:layout_height="69dp"
         android:layout_below="@+id/prompt"
@@ -80,18 +80,19 @@
         app:autoSizeTextType="uniform" />
 
     <ImageView
-        android:id="@+id/profile2"
+        android:id="@+id/currUserProfilePic"
         android:layout_width="68dp"
         android:layout_height="64dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="35dp"
         android:layout_marginTop="137dp"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="@string/todo"
+        app:srcCompat="@android:mipmap/sym_def_app_icon"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <SeekBar
-        android:id="@+id/moodBar2"
+        android:id="@+id/currUserMoodBar"
         android:layout_width="242dp"
         android:layout_height="31dp"
         android:layout_alignParentTop="true"
@@ -104,7 +105,7 @@
         android:id="@+id/Prompt1"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/moodBar2"
+        android:layout_below="@+id/currUserMoodBar"
         android:layout_alignStart="@+id/groupName"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -115,7 +116,7 @@
         android:text="@string/something_positive" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textbox3"
+        android:id="@+id/currUserPos"
         android:layout_width="344dp"
         android:layout_height="69dp"
         android:layout_below="@+id/Prompt1"
@@ -129,6 +130,7 @@
         android:hint="@string/enter_text_here" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/currUserName"
         android:layout_width="257dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/groupName"
@@ -143,7 +145,7 @@
         android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textbox2"
+        android:layout_below="@+id/currUserGrateful"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="157dp"

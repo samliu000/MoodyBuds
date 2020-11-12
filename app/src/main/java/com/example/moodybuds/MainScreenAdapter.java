@@ -57,7 +57,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
         TextView name = holder.personName;
         name.setText(profile.getName());
         TextView preview = holder.previewText;
-        preview.setText(profile.getPreviewText());
+        preview.setText(profile.getGrateful());
         SeekBar mood = holder.moodBar;
 //         need to figure out mood bar
         mood.setProgress(profile.getRatingNumber());
