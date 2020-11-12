@@ -15,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.ViewHolder> {
 
+    Context context;
+    private List<ProfileCard> profileCards;
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView personName;
         public SeekBar moodBar;
@@ -31,10 +34,10 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
         }
     }
 
-    private List<ProfileCard> profileCards;
-
-    public MainScreenAdapter(List<ProfileCard> cards){
+    public MainScreenAdapter(List<ProfileCard> cards, Context context){
         profileCards = cards;
+        this.context = context;
+
     }
 
     @NonNull
@@ -58,8 +61,14 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
         SeekBar mood = holder.moodBar;
 //         need to figure out mood bar
         mood.setProgress(profile.getRatingNumber());
-        // ImageView image = holder.profile;
-        // image.
+
+        ImageView image = holder.profile;
+
+        if(profile.getPhotoURLString() != "") {
+            GlideApp.with(context)
+                    .load("https://square.github.io/picasso/static/sample.png")
+                    .into(image);
+        }
 
     }
 

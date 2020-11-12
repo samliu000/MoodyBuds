@@ -67,7 +67,7 @@ public class MainScreen extends AppCompatActivity {
 
         // Set adapter
         RecyclerView rvProfile = (RecyclerView) findViewById(R.id.rvMain);
-        adapter = new MainScreenAdapter(listOfPeople);
+        adapter = new MainScreenAdapter(listOfPeople, this);
         rvProfile.setAdapter(adapter);
         rvProfile.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -23,7 +23,11 @@ public class ProfileCard {
         this.ratingNumber = ratingNumber;
         this.previewText = previewText;
         this.UID = UID;
-        this.photoURL = photoURL.toString();
+        if(photoURL == null){
+            this.photoURL = "";
+        } else {
+            this.photoURL = photoURL.toString();
+        }
     }
 
     public String getName() {
