@@ -1,25 +1,38 @@
 package com.example.moodybuds;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.parceler.Parcels;
+
 public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.ViewHolder> {
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    Context context;
+    private List<ProfileCard> profileCards;
+
+    public MainScreenAdapter(List<ProfileCard> cards){
+        profileCards = cards;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView personName;
         public SeekBar moodBar;
         public ImageView profile;
         public TextView previewText;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -28,13 +41,22 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
             moodBar = (SeekBar) itemView.findViewById(R.id.moodBar);
             profile = (ImageView) itemView.findViewById(R.id.profile);
             previewText = (TextView) itemView.findViewById(R.id.previewText);
+
+            itemView.setOnClickListener(this);
         }
-    }
 
-    private List<ProfileCard> profileCards;
+        @Override
+        public void onClick(View view){
+            int position = getAdapterPosition();
+            if(position!= RecyclerView.NO_POSITION){
+                ProfileCard profile1 = profileCards.get(position);
+                Intent intent = new Intent(view.getContext(), UserDetailPageActivity.class );
+                intent.putExtra(ProfileCard.class.getName(), Parcels.wrap(profile1));
+                view.getContext().startActivity(intent);
+            }
 
-    public MainScreenAdapter(List<ProfileCard> cards){
-        profileCards = cards;
+        }
+
     }
 
     @NonNull

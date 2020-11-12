@@ -5,6 +5,9 @@ import android.provider.ContactsContract;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class ProfileCard {
 
     private String name;
@@ -12,6 +15,7 @@ public class ProfileCard {
     private String previewText;
     private String UID;
 
+    // Empty constructor for parcel
     public ProfileCard() {
         name = "NULL";
         ratingNumber = 0;
