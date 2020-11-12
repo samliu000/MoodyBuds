@@ -152,13 +152,13 @@
         android:hint="Name" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/updateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textbox2"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/textbox2"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="161dp"
+        android:layout_marginStart="159dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#A2E3EC"
         android:text="update" />

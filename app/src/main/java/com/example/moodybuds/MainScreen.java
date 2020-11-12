@@ -44,6 +44,7 @@ public class MainScreen extends AppCompatActivity {
         // initialize list of people and current firebase user
         listOfPeople = new ArrayList<>();
         currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        currentFirebaseUser.getPhotoUrl();
 
         // create database references
         mRootRef = FirebaseDatabase.getInstance().getReference();
@@ -56,11 +57,11 @@ public class MainScreen extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUserMetadata metadata = auth.getCurrentUser().getMetadata();
 
-//        // if new user, add their data to the database
-//        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
-//            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", userUID);
-//            mUserRef.child(userUID).setValue(user);
-//        }
+        // if new user, add their data to the database
+        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
+            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", userUID, currentFirebaseUser.getPhotoUrl());
+            mUserRef.child(userUID).setValue(user);
+        }
 
         // Set adapter
         RecyclerView rvProfile = (RecyclerView) findViewById(R.id.rvMain);

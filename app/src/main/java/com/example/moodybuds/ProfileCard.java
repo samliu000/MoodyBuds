@@ -1,9 +1,6 @@
 package com.example.moodybuds;
 
-import android.os.Bundle;
-import android.provider.ContactsContract;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.net.Uri;
 
 public class ProfileCard {
 
@@ -11,19 +8,22 @@ public class ProfileCard {
     private int ratingNumber;
     private String previewText;
     private String UID;
+    private String photoURL;
 
     public ProfileCard() {
         name = "NULL";
         ratingNumber = 0;
         previewText = "NULL";
         UID = "";
+        photoURL = "";
     }
 
-    public ProfileCard(String name, int ratingNumber, String previewText, String UID){
+    public ProfileCard(String name, int ratingNumber, String previewText, String UID, Uri photoURL){
         this.name = name;
         this.ratingNumber = ratingNumber;
         this.previewText = previewText;
         this.UID = UID;
+        this.photoURL = photoURL.toString();
     }
 
     public String getName() {
@@ -45,4 +45,7 @@ public class ProfileCard {
         return UID;
     }
 
+    public String getPhotoURLString() {
+        return photoURL;
+    }
 }
