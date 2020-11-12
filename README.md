@@ -17,10 +17,5 @@ App Description here...
 - Samuel Liu
 
 ## Open-source libraries used
-- [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
-- [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
-
-### Open-source libraries used
-
-- [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
+- [Firebase](https://firebase.google.com/) - User Authentication and Realtime Database provider
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Androids
