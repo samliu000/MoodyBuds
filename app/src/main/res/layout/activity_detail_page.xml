@@ -88,7 +88,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="137dp"
         android:contentDescription="@string/todo"
-        app:srcCompat="@android:mipmap/sym_def_app_icon"
+        app:srcCompat="@drawable/ic_user"
         tools:srcCompat="@tools:sample/avatars" />
 
     <SeekBar

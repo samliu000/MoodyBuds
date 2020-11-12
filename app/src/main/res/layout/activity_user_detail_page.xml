@@ -79,10 +79,11 @@
         android:layout_height="64dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="33dp"
         android:layout_marginTop="137dp"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/ic_user"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <SeekBar
         android:id="@+id/userMoodBar"

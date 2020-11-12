@@ -81,6 +81,10 @@ public class DetailPage extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userInfo = dataSnapshot.getValue(ProfileCard.class);
+                if(userInfo == null) {
+                    userInfo = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", currentFirebaseUser.getUid(), currentFirebaseUser.getPhotoUrl(), "", "", "");
+                    mUserRef.setValue(userInfo);
+                }
                 currUserName.setText(userInfo.getName());
                 currUserMoodBar.setProgress(userInfo.getRatingNumber());
                 currUserNeg.setText(userInfo.getNeg());

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Parcel;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View.OnTouchListener;
 
 import java.util.List;
 
@@ -36,8 +38,6 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
         public ImageView profilePhoto;
         public TextView previewText;
 
-
-
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -46,6 +46,13 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
             profilePhoto = (ImageView) itemView.findViewById(R.id.profile);
             previewText = (TextView) itemView.findViewById(R.id.previewText);
             profileCard = (RelativeLayout) itemView.findViewById(R.id.profileCard);
+
+            moodBar.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    return true;
+                }
+            });
         }
 
         public void bind(final ProfileCard profile) {
@@ -54,7 +61,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
             moodBar.setProgress(profile.getRatingNumber());
 //            if(profile.getPhotoURLString() != "") {
 //                GlideApp.with(context)
-//                        .load("https://square.github.io/picasso/static/sample.png")
+//                        .load(profile.getPhotoURLString());
 //                        .into(profilePhoto);
 //            }
             previewText.setText(profile.getGrateful());
