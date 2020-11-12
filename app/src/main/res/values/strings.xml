@@ -10,4 +10,5 @@
     <string name="something_positive">Something positive...</string>
     <string name="group_name">Group Name</string>
     <string name="readtext">ReadText</string>
+    <string name="help_switch">HELP Switch</string>
 </resources>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/profileCard"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="200dp"
+    android:visibility="visible"
     tools:context=".ProfileCard">
 
     <ImageView
@@ -15,6 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="38dp"
+        android:contentDescription="@string/todo"
         app:srcCompat="@drawable/com_facebook_profile_picture_blank_square"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -51,6 +53,15 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="33dp"
         android:layout_toEndOf="@+id/profile"
-        android:text="Name" />
+        android:text="@string/name" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="?android:attr/listDivider" />
 
 </RelativeLayout>
