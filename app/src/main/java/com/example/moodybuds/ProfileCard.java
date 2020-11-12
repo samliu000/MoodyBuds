@@ -26,7 +26,7 @@ public class ProfileCard {
         if(photoURL == null){
             this.photoURL = "";
         } else {
-            this.photoURL = photoURL.toString();
+            this.photoURL = photoURL.getPath();
         }
     }
 
