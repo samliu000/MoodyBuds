@@ -146,7 +146,7 @@
         android:layout_below="@+id/textbox2"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="161dp"
+        android:layout_marginStart="157dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#A2E3EC"
         android:text="@string/update" />
