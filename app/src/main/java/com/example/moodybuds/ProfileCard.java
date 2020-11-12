@@ -2,6 +2,9 @@ package com.example.moodybuds;
 
 import android.net.Uri;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class ProfileCard {
 
     private String name;
@@ -13,6 +16,7 @@ public class ProfileCard {
     private String neg;
     private String grateful;
 
+    // Empty constructor for parcel
     public ProfileCard() {
         name = "NULL";
         ratingNumber = 0;
