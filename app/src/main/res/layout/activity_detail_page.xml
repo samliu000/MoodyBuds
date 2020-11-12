@@ -62,18 +62,6 @@
         android:layout_marginEnd="33dp"
         android:hint="@string/enter_text_here" />
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="28dp"
-        android:backgroundTint="#AFEBF3"
-        app:srcCompat="?attr/homeAsUpIndicator"
-        android:contentDescription="@string/todo" />
-
     <TextView
         android:id="@+id/groupName"
         android:layout_width="wrap_content"
@@ -82,9 +70,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="103dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="29dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="80dp"
         android:background="#FFFFFF"
         android:backgroundTint="#B0EDF4"
         android:text="@string/group_name"
@@ -152,7 +140,7 @@
         android:hint="@string/name" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textbox2"
