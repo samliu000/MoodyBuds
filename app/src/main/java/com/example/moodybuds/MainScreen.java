@@ -6,6 +6,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseUserMetadata;
@@ -39,6 +42,9 @@ public class MainScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.mipmap.ic_action_bar);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
         setContentView(R.layout.activity_main_screen);
 
         Intent intent = getIntent();
@@ -46,6 +52,7 @@ public class MainScreen extends AppCompatActivity {
         // initialize list of people and current firebase user
         listOfPeople = new ArrayList<>();
         currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        currentFirebaseUser.getPhotoUrl();
 
         // create database references
         mRootRef = FirebaseDatabase.getInstance().getReference();
@@ -58,15 +65,15 @@ public class MainScreen extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUserMetadata metadata = auth.getCurrentUser().getMetadata();
 
-//        // if new user, add their data to the database
-//        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
-//            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", userUID);
-//            mUserRef.child(userUID).setValue(user);
-//        }
+        // if new user, add their data to the database
+        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
+            ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", userUID, currentFirebaseUser.getPhotoUrl(), "", "", "");
+            mUserRef.child(userUID).setValue(user);
+        }
 
         // Set adapter
         RecyclerView rvProfile = (RecyclerView) findViewById(R.id.rvMain);
-        adapter = new MainScreenAdapter(listOfPeople);
+        adapter = new MainScreenAdapter(listOfPeople, this);
         rvProfile.setAdapter(adapter);
         rvProfile.setLayoutManager(new LinearLayoutManager(this));
     }
