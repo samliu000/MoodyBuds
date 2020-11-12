@@ -8,7 +8,7 @@ App Description here...
 
 ### App Walkthough GIF
 
-<img src="https://github.com/samliu000/Flixster/blob/master/demoPart2.gif" width=250><br>
+<img src="" width=250><br>
 
 ### Collaborators
 - Kimberly Kao
