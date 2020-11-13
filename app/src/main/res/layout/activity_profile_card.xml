@@ -5,6 +5,8 @@
     android:id="@+id/profileCard"
     android:layout_width="match_parent"
     android:layout_height="200dp"
+    android:background="#FFFFFF"
+    android:backgroundTint="#F9F9F9"
     android:visibility="visible"
     tools:context=".ProfileCard">
 
@@ -93,5 +95,19 @@
         android:layout_marginTop="74dp"
         android:layout_marginEnd="35dp"
         android:src="@drawable/ic_iconmonstr_smiley_4" />
+
+    <ImageView
+        android:id="@+id/alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="30dp"
+        android:background="#F7F7F7"
+        android:backgroundTint="#FFFFFF"
+        android:src="@android:drawable/ic_dialog_alert"
+        app:tint="#F17878"
+        android:visibility="visible" />
 
 </RelativeLayout>
