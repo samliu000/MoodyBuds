@@ -14,8 +14,8 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
-import android.widget.Toast;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -50,10 +50,10 @@ public class DetailPage extends AppCompatActivity {
     FirebaseUser currentFirebaseUser;
     DatabaseReference mUserRef;
     ProfileCard userInfo;
-    StorageReference storageReference;
-    StorageReference profileRef;
     Switch toTalkSwitch;
     ImageView alert;
+    StorageReference storageReference;
+    StorageReference profileRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +77,6 @@ public class DetailPage extends AppCompatActivity {
         context = this;
         currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         mUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentFirebaseUser.getUid());
-
         //switch
         toTalkSwitch = findViewById(R.id.toTalk);
         alert = findViewById(R.id.alert);
