@@ -115,4 +115,5 @@
         android:src="@android:drawable/ic_dialog_alert"
         android:visibility="visible"
         app:tint="#F17878" />
+
 </RelativeLayout>
