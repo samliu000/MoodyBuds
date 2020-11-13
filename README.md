@@ -1,5 +1,5 @@
 # MoodyBuddies (MoodyBuds) For YHack2020
-App Description here...
+An app that allows a group of friends to check on each other.
 
 ## MoodyBuds
 

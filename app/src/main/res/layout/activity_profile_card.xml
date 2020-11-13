@@ -30,9 +30,10 @@
         android:layout_below="@+id/personName"
         android:layout_alignBottom="@+id/profile"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="15dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="69dp"
         android:layout_marginBottom="15dp"
         android:layout_toEndOf="@+id/profile" />
 
@@ -105,16 +106,14 @@
 
     <ImageView
         android:id="@+id/alert"
-        android:layout_width="wrap_content"
+        android:layout_width="21dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="30dp"
-        android:background="#F7F7F7"
-        android:backgroundTint="#FFFFFF"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="38dp"
         android:src="@android:drawable/ic_dialog_alert"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:tint="#F17878" />
 
 </RelativeLayout>
