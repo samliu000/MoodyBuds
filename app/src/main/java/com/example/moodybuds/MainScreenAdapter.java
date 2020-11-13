@@ -65,6 +65,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
                     return true;
                 }
             });
+
         }
 
         public void bind(final ProfileCard profile) {
@@ -97,6 +98,23 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
                     context.startActivity(intent);
                 }
             });
+
+            if(profile.getRatingNumber()<=30){
+                profileCard.findViewById(R.id.iV_smile).setVisibility(View.INVISIBLE);
+                profileCard.findViewById(R.id.meh).setVisibility(View.INVISIBLE);
+                profileCard.findViewById(R.id.iV_sad).setVisibility(View.VISIBLE);
+            }
+            if(profile.getRatingNumber()>30 && profile.getRatingNumber()<70){
+                profileCard.findViewById(R.id.iV_smile).setVisibility(View.INVISIBLE);
+                profileCard.findViewById(R.id.meh).setVisibility(View.VISIBLE);
+                profileCard.findViewById(R.id.iV_sad).setVisibility(View.INVISIBLE);
+            }
+            if(profile.getRatingNumber()>=70){
+                profileCard.findViewById(R.id.iV_smile).setVisibility(View.VISIBLE);
+                profileCard.findViewById(R.id.meh).setVisibility(View.INVISIBLE);
+                profileCard.findViewById(R.id.iV_sad).setVisibility(View.INVISIBLE);
+            }
+
         }
     }
 

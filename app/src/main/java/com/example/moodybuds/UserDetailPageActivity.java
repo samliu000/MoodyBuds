@@ -32,7 +32,6 @@ public class UserDetailPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_detail_page);
-
         //initialize everything
         userName = findViewById(R.id.userName);
         currUserGrateful = findViewById(R.id.userGrateful);
