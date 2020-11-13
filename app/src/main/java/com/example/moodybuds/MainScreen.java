@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -141,5 +142,6 @@ public class MainScreen extends AppCompatActivity {
         Log.d("MAINSCREEN", "size of list of people: " + listOfPeople.size());
 
     }
+
 
 }
