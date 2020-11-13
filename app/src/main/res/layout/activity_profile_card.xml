@@ -19,7 +19,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="38dp"
         android:contentDescription="@string/todo"
-        app:srcCompat="@drawable/com_facebook_profile_picture_blank_square"
+        app:srcCompat="@drawable/ic_user"
         tools:srcCompat="@tools:sample/avatars" />
 
     <SeekBar
