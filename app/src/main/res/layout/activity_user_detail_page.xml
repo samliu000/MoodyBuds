@@ -131,25 +131,25 @@
         android:text="@string/name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/userProfilePic"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/userProfilePic"
-        android:text="Mood Bar"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
     <SeekBar
         android:id="@+id/userMoodBar"
-        android:layout_width="180dp"
-        android:layout_height="30dp"
+        android:layout_width="210dp"
+        android:layout_height="31dp"
         android:layout_alignBottom="@+id/userProfilePic"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="34dp"
         android:layout_toEndOf="@+id/userProfilePic" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/userProfilePic"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/userProfilePic"
+        android:text="Mood Bar"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <ImageView
         android:id="@+id/userProfilePic"
