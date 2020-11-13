@@ -15,6 +15,7 @@ public class ProfileCard {
     private String pos;
     private String neg;
     private String grateful;
+    private boolean needsHelp;
 
     // Empty constructor for parcel
     public ProfileCard() {
@@ -26,9 +27,10 @@ public class ProfileCard {
         pos = "";
         neg = "";
         grateful = "";
+        needsHelp = false;
     }
 
-    public ProfileCard(String name, int ratingNumber, String previewText, String UID, Uri photoURL, String pos, String neg, String grateful){
+    public ProfileCard(String name, int ratingNumber, String previewText, String UID, Uri photoURL, String pos, String neg, String grateful, boolean needsHelp){
         this.name = name;
         this.ratingNumber = ratingNumber;
         this.previewText = previewText;
@@ -41,10 +43,19 @@ public class ProfileCard {
         this.pos = pos;
         this.neg = neg;
         this.grateful = grateful;
+        this.needsHelp = needsHelp;
+    }
+
+    public boolean isNeedsHelp() {
+        return needsHelp;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setNeedsHelp(boolean needsHelp) {
+        this.needsHelp = needsHelp;
     }
 
     public int getRatingNumber() {

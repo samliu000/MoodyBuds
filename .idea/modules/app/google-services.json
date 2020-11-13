@@ -1,0 +1,96 @@
+{
+  "project_info": {
+    "project_number": "790025932751",
+    "firebase_url": "https://yhack2020-831d0.firebaseio.com",
+    "project_id": "yhack2020-831d0",
+    "storage_bucket": "yhack2020-831d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790025932751:android:efbbb258f1b44bc2260cba",
+        "android_client_info": {
+          "package_name": "com.example.moodybuds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790025932751-b41h68egr5328qikatm6ab2km5jv1g9n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moodybuds",
+            "certificate_hash": "084e48c100544f3096411615a46ad8bd4cbf2b8c"
+          }
+        },
+        {
+          "client_id": "790025932751-flve0fiho66ignniend7r4gmdmt1eso1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moodybuds",
+            "certificate_hash": "dd1b843cf724461540ac61361194d2739aad869e"
+          }
+        },
+        {
+          "client_id": "790025932751-rp09571ikul8grr8ps2ud54ft5lg2qpe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moodybuds",
+            "certificate_hash": "88e2006efca340ada5fc9c40b96b535b7674b042"
+          }
+        },
+        {
+          "client_id": "790025932751-dh7u145pqjmstoj4pfp45mstjkjnha1q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moodybuds",
+            "certificate_hash": "5fb5e6d198b5a75fe9043c1f8e6924a98d9adead"
+          }
+        },
+        {
+          "client_id": "790025932751-ood1qvhasub7thhordcbr3r00mkaklqv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moodybuds",
+            "certificate_hash": "b94823db99eb7796e07574499b3152b5cc0bd70b"
+          }
+        },
+        {
+          "client_id": "790025932751-8u8lt9i116qvru897r31konq54gkq7fr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moodybuds",
+            "certificate_hash": "f166aed9221be03fbd14d5143847914127f9f574"
+          }
+        },
+        {
+          "client_id": "790025932751-6r5a39rnj5oddg2lh4se1uomndis6v9c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moodybuds",
+            "certificate_hash": "830c82f0e469ca05c94f52f869513d30f7b55cbb"
+          }
+        },
+        {
+          "client_id": "790025932751-f7mp2n6v0fklf4m8qg200e683n776pk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5tT6MXPRVXesZc_btG6Z7Nq2nOcHTc-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790025932751-f7mp2n6v0fklf4m8qg200e683n776pk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

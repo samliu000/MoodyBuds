@@ -51,7 +51,6 @@ public class DetailPage extends AppCompatActivity {
     DatabaseReference mUserRef;
     ProfileCard userInfo;
     Switch toTalkSwitch;
-    ImageView alert;
     StorageReference storageReference;
     StorageReference profileRef;
 
@@ -79,15 +78,14 @@ public class DetailPage extends AppCompatActivity {
         mUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentFirebaseUser.getUid());
         //switch
         toTalkSwitch = findViewById(R.id.toTalk);
-        alert = findViewById(R.id.alert);
 
         //switch button
         toTalkSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    alert.setVisibility(View.VISIBLE);
+                    mUserRef.child("needsHelp").setValue(true);
                 } else {
-                    alert.setVisibility(View.INVISIBLE);
+                    mUserRef.child("needsHelp").setValue(false);
                 }
             }
         });
@@ -110,6 +108,7 @@ public class DetailPage extends AppCompatActivity {
                 userInfo.setRatingNumber(currUserMoodBar.getProgress());
                 userInfo.setPos(currUserPos.getText().toString());
                 userInfo.setNeg(currUserNeg.getText().toString());
+                userInfo.setNeedsHelp(toTalkSwitch.isChecked());
                 mUserRef.setValue(userInfo);
 
                 Intent toMain = new Intent(context, MainScreen.class);
@@ -136,7 +135,7 @@ public class DetailPage extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userInfo = dataSnapshot.getValue(ProfileCard.class);
                 if(userInfo == null) {
-                    userInfo = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", currentFirebaseUser.getUid(), currentFirebaseUser.getPhotoUrl(), "", "", "");
+                    userInfo = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", currentFirebaseUser.getUid(), currentFirebaseUser.getPhotoUrl(), "", "", "", false);
                     mUserRef.setValue(userInfo);
                 }
                 currUserName.setText(userInfo.getName());
@@ -144,6 +143,7 @@ public class DetailPage extends AppCompatActivity {
                 currUserNeg.setText(userInfo.getNeg());
                 currUserPos.setText(userInfo.getPos());
                 currUserGrateful.setText(userInfo.getGrateful());
+                toTalkSwitch.setChecked(userInfo.isNeedsHelp());
             }
 
             @Override

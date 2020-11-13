@@ -49,6 +49,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
         public SeekBar moodBar;
         public ImageView profilePhoto;
         public TextView previewText;
+        public ImageView alert;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -58,6 +59,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
             profilePhoto = (ImageView) itemView.findViewById(R.id.profile);
             previewText = (TextView) itemView.findViewById(R.id.previewText);
             profileCard = (RelativeLayout) itemView.findViewById(R.id.profileCard);
+            alert = itemView.findViewById(R.id.alert);
 
             moodBar.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -79,7 +81,12 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
             //Set item views based on views and data model
             personName.setText(profile.getName());
             moodBar.setProgress(profile.getRatingNumber());
-//
+            if(profile.isNeedsHelp()) {
+                alert.setVisibility(View.VISIBLE);
+            } else {
+                alert.setVisibility(View.INVISIBLE);
+            }
+
             profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
@@ -87,7 +94,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
                 }
             });
 
-            previewText.setText(profile.getGrateful());
+            previewText.setText(profile.getPos());
 
             profileCard.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -132,7 +139,6 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
     public void onBindViewHolder(MainScreenAdapter.ViewHolder holder, int position) {
         ProfileCard profile = profileCards.get(position);
         holder.bind(profile);
-
     }
 
     @Override
