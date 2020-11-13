@@ -6,14 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".DetailPage">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="105dp"
+        android:text="Mood Bar"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
     <SeekBar
         android:id="@+id/userMoodBar"
         android:layout_width="210dp"
         android:layout_height="31dp"
         android:layout_below="@+id/currUserName"
         android:layout_alignStart="@+id/currUserName"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="25dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="37dp" />
 
     <ImageView
         android:id="@+id/currUserProfilePic"
@@ -31,13 +42,13 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/currUserName"
-        android:layout_width="257dp"
+        android:layout_width="244dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/groupName"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="80dp"
         android:layout_marginTop="29dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="30dp"
         android:hint="@string/name" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -126,6 +137,16 @@
         android:text="@string/something_positive"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
+    <Switch
+        android:id="@+id/toTalk"
+        android:layout_width="152dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/currUserGrateful"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="37dp"
+        android:text="Need someone to talk to" />
+
     <Button
         android:id="@+id/updateButton"
         android:layout_width="wrap_content"
@@ -134,7 +155,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="267dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="35dp"
         android:backgroundTint="#A2E3EC"
         android:text="@string/update" />
 
@@ -145,15 +166,5 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="41dp"
         android:layout_marginTop="61dp" />
-
-    <Switch
-        android:id="@+id/toTalk"
-        android:layout_width="152dp"
-        android:layout_height="42dp"
-        android:layout_below="@+id/currUserGrateful"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="20dp"
-        android:text="Need someone to talk to" />
 
 </RelativeLayout>
