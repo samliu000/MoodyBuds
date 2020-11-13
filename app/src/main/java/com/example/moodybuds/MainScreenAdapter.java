@@ -78,7 +78,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
             //Set item views based on views and data model
             personName.setText(profile.getName());
             moodBar.setProgress(profile.getRatingNumber());
-//
+
             profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {

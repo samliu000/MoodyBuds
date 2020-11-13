@@ -55,7 +55,7 @@ public class UserDetailPageActivity extends AppCompatActivity {
         currUserGrateful.setText(profile.getGrateful());
         currUserMoodBar.setProgress(profile.getRatingNumber());
         currUserPos.setText(profile.getPos());
-        currUserNeg.setText(profile.getPos());
+        currUserNeg.setText(profile.getNeg());
 
         // action bar logo
         getSupportActionBar().setDisplayShowHomeEnabled(true);
