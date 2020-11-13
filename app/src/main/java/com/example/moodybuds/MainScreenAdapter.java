@@ -2,19 +2,31 @@ package com.example.moodybuds;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Parcel;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View.OnTouchListener;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -22,16 +34,20 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
 
     Context context;
     private List<ProfileCard> profileCards;
+    FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     public MainScreenAdapter(List<ProfileCard> cards, Context context){
         profileCards = cards;
         this.context = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        RelativeLayout profileCard;
         public TextView personName;
         public SeekBar moodBar;
-        public ImageView profile;
+        public ImageView profilePhoto;
         public TextView previewText;
 
         public ViewHolder(View itemView) {
@@ -39,21 +55,48 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
 
             personName = (TextView) itemView.findViewById(R.id.personName);
             moodBar = (SeekBar) itemView.findViewById(R.id.moodBar);
-            profile = (ImageView) itemView.findViewById(R.id.profile);
+            profilePhoto = (ImageView) itemView.findViewById(R.id.profile);
             previewText = (TextView) itemView.findViewById(R.id.previewText);
+            profileCard = (RelativeLayout) itemView.findViewById(R.id.profileCard);
 
-            itemView.setOnClickListener(this);
+            moodBar.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    return true;
+                }
+            });
         }
 
-        @Override
-        public void onClick(View view) {
-            int position = getAdapterPosition();
-            if (position != RecyclerView.NO_POSITION) {
-                ProfileCard profile1 = profileCards.get(position);
-                Intent intent = new Intent(view.getContext(), UserDetailPageActivity.class);
-                intent.putExtra(ProfileCard.class.getName(), Parcels.wrap(profile1));
-                view.getContext().startActivity(intent);
-            }
+        public void bind(final ProfileCard profile) {
+
+            // get storage reference for each person
+            StorageReference profileRef = storageReference.child(profile.getUID());
+
+            // get current user
+            currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+            //Set item views based on views and data model
+            personName.setText(profile.getName());
+            moodBar.setProgress(profile.getRatingNumber());
+//
+            profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Picasso.get().load(uri).into(profilePhoto);
+                }
+            });
+
+            previewText.setText(profile.getGrateful());
+
+            profileCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, UserDetailPageActivity.class);
+                    intent.putExtra(ProfileCard.class.getName(), Parcels.wrap(profile));
+                    Toast.makeText(context, profile.getName(), Toast.LENGTH_SHORT).show();
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
@@ -70,22 +113,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
     @Override
     public void onBindViewHolder(MainScreenAdapter.ViewHolder holder, int position) {
         ProfileCard profile = profileCards.get(position);
-        //Set item views based on views and data model
-        TextView name = holder.personName;
-        name.setText(profile.getName());
-        TextView preview = holder.previewText;
-        preview.setText(profile.getGrateful());
-        SeekBar mood = holder.moodBar;
-//         need to figure out mood bar
-        mood.setProgress(profile.getRatingNumber());
-
-        ImageView image = holder.profile;
-
-        if(profile.getPhotoURLString() != "") {
-            GlideApp.with(context)
-                    .load("https://square.github.io/picasso/static/sample.png")
-                    .into(image);
-        }
+        holder.bind(profile);
 
     }
 

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +47,7 @@ public class MainScreen extends AppCompatActivity {
         getSupportActionBar().setLogo(R.mipmap.ic_action_bar);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         setContentView(R.layout.activity_main_screen);
+        getSupportActionBar().setTitle("Best Friends Since 2020");
 
         Intent intent = getIntent();
 
@@ -66,10 +68,10 @@ public class MainScreen extends AppCompatActivity {
         FirebaseUserMetadata metadata = auth.getCurrentUser().getMetadata();
 
         // if new user, add their data to the database
-        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
+        /*if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
             ProfileCard user = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", userUID, currentFirebaseUser.getPhotoUrl(), "", "", "");
             mUserRef.child(userUID).setValue(user);
-        }
+        }*/
 
         // Set adapter
         RecyclerView rvProfile = (RecyclerView) findViewById(R.id.rvMain);
