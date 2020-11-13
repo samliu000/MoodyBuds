@@ -131,7 +131,6 @@ public class MainScreen extends AppCompatActivity {
                 // recycler view stuff here
                 adapter.notifyDataSetChanged();
 
-
             }
 
             @Override

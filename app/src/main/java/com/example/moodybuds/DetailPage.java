@@ -108,6 +108,7 @@ public class DetailPage extends AppCompatActivity {
                 userInfo.setRatingNumber(currUserMoodBar.getProgress());
                 userInfo.setPos(currUserPos.getText().toString());
                 userInfo.setNeg(currUserNeg.getText().toString());
+                userInfo.setNeedsHelp(toTalkSwitch.isChecked());
                 mUserRef.setValue(userInfo);
 
                 Intent toMain = new Intent(context, MainScreen.class);

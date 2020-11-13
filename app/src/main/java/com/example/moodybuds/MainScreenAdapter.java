@@ -94,7 +94,7 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
                 }
             });
 
-            previewText.setText(profile.getGrateful());
+            previewText.setText(profile.getPos());
 
             profileCard.setOnClickListener(new View.OnClickListener() {
                 @Override
