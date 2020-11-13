@@ -108,6 +108,5 @@
         android:backgroundTint="#FFFFFF"
         android:src="@android:drawable/ic_dialog_alert"
         app:tint="#F17878"
-        android:visibility="visible" />
-
+        android:visibility="invisible" />
 </RelativeLayout>
