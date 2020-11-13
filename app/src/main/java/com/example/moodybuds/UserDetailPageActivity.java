@@ -32,10 +32,6 @@ public class UserDetailPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_detail_page);
-<<<<<<< HEAD
-        // unwraps the profile card being called
-=======
-
         //initialize everything
         userName = findViewById(R.id.userName);
         currUserGrateful = findViewById(R.id.userGrateful);
@@ -51,7 +47,6 @@ public class UserDetailPageActivity extends AppCompatActivity {
         });
 
         // unwrap profile
->>>>>>> 6fe812855fc02fb0f2964e67f91ef618574a97a5
         profile = (ProfileCard) Parcels.unwrap(getIntent().getParcelableExtra(ProfileCard.class.getName()));
 
         // populate views
@@ -65,10 +60,6 @@ public class UserDetailPageActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.ic_action_bar);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-<<<<<<< HEAD
-
-=======
->>>>>>> 6fe812855fc02fb0f2964e67f91ef618574a97a5
 
         // Back button on click
         backButton = findViewById(R.id.backButton);

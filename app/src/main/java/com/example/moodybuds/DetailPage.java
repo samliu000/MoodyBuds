@@ -118,16 +118,6 @@ public class DetailPage extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userInfo = dataSnapshot.getValue(ProfileCard.class);
                 if(userInfo == null) {
-<<<<<<< HEAD
-                    userInfo = new ProfileCard();
-                } else {
-                    currUserName.setText(userInfo.getName());
-                    currUserMoodBar.setProgress(userInfo.getRatingNumber());
-                    currUserNeg.setText(userInfo.getNeg());
-                    currUserPos.setText(userInfo.getPos());
-                    currUserGrateful.setText(userInfo.getGrateful());
-                }
-=======
                     userInfo = new ProfileCard(currentFirebaseUser.getDisplayName(), 0, "", currentFirebaseUser.getUid(), currentFirebaseUser.getPhotoUrl(), "", "", "");
                     mUserRef.setValue(userInfo);
                 }
@@ -136,7 +126,6 @@ public class DetailPage extends AppCompatActivity {
                 currUserNeg.setText(userInfo.getNeg());
                 currUserPos.setText(userInfo.getPos());
                 currUserGrateful.setText(userInfo.getGrateful());
->>>>>>> 6fe812855fc02fb0f2964e67f91ef618574a97a5
             }
 
             @Override

@@ -64,4 +64,34 @@
         android:layout_marginBottom="0dp"
         android:background="?android:attr/listDivider" />
 
+    <ImageView
+        android:id="@+id/iV_smile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="35dp"
+        android:src="@drawable/ic_iconmonstr_smiley_2" />
+
+    <ImageView
+        android:id="@+id/meh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="35dp"
+        android:src="@drawable/ic_iconmonstr_smiley_6" />
+
+    <ImageView
+        android:id="@+id/iV_sad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="35dp"
+        android:src="@drawable/ic_iconmonstr_smiley_4" />
+
 </RelativeLayout>
