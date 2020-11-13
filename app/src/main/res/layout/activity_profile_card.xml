@@ -12,12 +12,12 @@
 
     <ImageView
         android:id="@+id/profile"
-        android:layout_width="60dp"
-        android:layout_height="62dp"
+        android:layout_width="90dp"
+        android:layout_height="95dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
         android:contentDescription="@string/todo"
         app:srcCompat="@drawable/ic_user"
         tools:srcCompat="@tools:sample/avatars" />
@@ -28,34 +28,40 @@
         android:layout_width="242dp"
         android:layout_height="31dp"
         android:layout_below="@+id/personName"
+        android:layout_alignBottom="@+id/profile"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="60dp"
+        android:layout_marginBottom="15dp"
         android:layout_toEndOf="@+id/profile" />
 
     <TextView
         android:id="@+id/previewText"
         android:layout_width="341dp"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:layout_below="@+id/moodBar"
-        android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="31dp"
+        android:layout_alignStart="@+id/profile"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="34dp"
-        android:text="@string/preview_text_about_their_day" />
+        android:text="@string/preview_text_about_their_day"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/personName"
-        android:layout_width="216dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:layout_toStartOf="@+id/alert"
         android:layout_toEndOf="@+id/profile"
-        android:text="@string/name" />
+        android:text="@string/name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <View
         android:id="@+id/divider"
@@ -67,13 +73,24 @@
         android:background="?android:attr/listDivider" />
 
     <ImageView
+        android:id="@+id/iV_sad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="37dp"
+        android:src="@drawable/ic_iconmonstr_smiley_4" />
+
+    <ImageView
         android:id="@+id/iV_smile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="37dp"
         android:src="@drawable/ic_iconmonstr_smiley_2" />
 
     <ImageView
@@ -82,19 +99,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="37dp"
         android:src="@drawable/ic_iconmonstr_smiley_6" />
-
-    <ImageView
-        android:id="@+id/iV_sad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="35dp"
-        android:src="@drawable/ic_iconmonstr_smiley_4" />
 
     <ImageView
         android:id="@+id/alert"
@@ -107,6 +114,6 @@
         android:background="#F7F7F7"
         android:backgroundTint="#FFFFFF"
         android:src="@android:drawable/ic_dialog_alert"
-        app:tint="#F17878"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        app:tint="#F17878" />
 </RelativeLayout>
