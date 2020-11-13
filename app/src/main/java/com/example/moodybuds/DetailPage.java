@@ -10,9 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -48,6 +50,8 @@ public class DetailPage extends AppCompatActivity {
     FirebaseUser currentFirebaseUser;
     DatabaseReference mUserRef;
     ProfileCard userInfo;
+    Switch toTalkSwitch;
+    ImageView alert;
     StorageReference storageReference;
     StorageReference profileRef;
 
@@ -73,6 +77,20 @@ public class DetailPage extends AppCompatActivity {
         context = this;
         currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         mUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentFirebaseUser.getUid());
+        //switch
+        toTalkSwitch = findViewById(R.id.toTalk);
+        alert = findViewById(R.id.alert);
+
+        //switch button
+        toTalkSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    alert.setVisibility(View.VISIBLE);
+                } else {
+                    alert.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
         // photo
         profileRef = storageReference.child(currentFirebaseUser.getUid());
