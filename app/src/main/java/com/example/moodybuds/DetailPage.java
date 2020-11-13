@@ -124,6 +124,7 @@ public class DetailPage extends AppCompatActivity {
             }
         });
 
+
     }
 
     @Override
