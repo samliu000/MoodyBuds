@@ -110,4 +110,6 @@ public class ProfileCard {
     public void setGrateful(String grateful) {
         this.grateful = grateful;
     }
+
+
 }
