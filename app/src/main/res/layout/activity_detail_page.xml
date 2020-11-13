@@ -150,7 +150,7 @@
         android:buttonTint="#2196F3"
         android:checked="false"
         android:clickable="true"
-        android:showText="true"
+        android:showText="false"
         android:splitTrack="false"
         android:text="Need someone to talk to"
         android:thumbTint="#93DEE7"
