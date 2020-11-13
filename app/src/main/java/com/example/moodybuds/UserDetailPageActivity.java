@@ -4,14 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -24,6 +31,9 @@ public class UserDetailPageActivity extends AppCompatActivity {
     TextView currUserPos;
     TextView currUserNeg;
     TextView currUserGrateful;
+    ImageView currUserProfilePic;
+    StorageReference storageReference;
+    StorageReference profileRef;
 
     ImageButton backButton;
     Context context;
@@ -38,6 +48,7 @@ public class UserDetailPageActivity extends AppCompatActivity {
         currUserMoodBar = findViewById(R.id.userMoodBar);
         currUserPos = findViewById(R.id.userPos);
         currUserNeg = findViewById(R.id.userNeg);
+        currUserProfilePic = findViewById(R.id.userProfilePic);
 
         currUserMoodBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -48,6 +59,17 @@ public class UserDetailPageActivity extends AppCompatActivity {
 
         // unwrap profile
         profile = (ProfileCard) Parcels.unwrap(getIntent().getParcelableExtra(ProfileCard.class.getName()));
+
+        // photo
+        storageReference = FirebaseStorage.getInstance().getReference();
+        profileRef = storageReference.child(profile.getUID());
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(currUserProfilePic);
+            }
+        });
+
 
         // populate views
         userName.setText(profile.getName());
