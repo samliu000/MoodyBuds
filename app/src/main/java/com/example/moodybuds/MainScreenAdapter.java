@@ -21,8 +21,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -31,6 +35,8 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
     Context context;
     private List<ProfileCard> profileCards;
     FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     public MainScreenAdapter(List<ProfileCard> cards, Context context){
         profileCards = cards;
@@ -62,13 +68,24 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Vi
         }
 
         public void bind(final ProfileCard profile) {
+
+            // get storage reference for each person
+            StorageReference profileRef = storageReference.child(profile.getUID());
+
             // get current user
             currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
             //Set item views based on views and data model
             personName.setText(profile.getName());
             moodBar.setProgress(profile.getRatingNumber());
-//            Glide.with(context).load(profile.getPhotoURLString()).into(profilePhoto);
+//
+            profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Picasso.get().load(uri).into(profilePhoto);
+                }
+            });
+
             previewText.setText(profile.getGrateful());
 
             profileCard.setOnClickListener(new View.OnClickListener() {

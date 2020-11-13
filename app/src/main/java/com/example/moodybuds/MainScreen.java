@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +47,7 @@ public class MainScreen extends AppCompatActivity {
         getSupportActionBar().setLogo(R.mipmap.ic_action_bar);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         setContentView(R.layout.activity_main_screen);
+        getSupportActionBar().setTitle("Best Friends Since 2020");
 
         Intent intent = getIntent();
 
