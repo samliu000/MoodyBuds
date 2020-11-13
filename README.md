@@ -14,9 +14,9 @@ An app that allows a group of friends to check on each other.
 ### App Walkthough GIF
 
 
-Solarized dark             |  Solarized Ocean
+Sign In            |  Walkthrough
 :-------------------------:|:-------------------------:
-![](https://...Dark.png)  |  ![](https://...Ocean.png)
+!<img src="https://github.com/samliu000/MoodyBuds/blob/main/signInDemo.gif" width=250><br> |  <img src="https://github.com/samliu000/MoodyBuds/blob/main/walkThrough.gif" width=250><br>
 ### Collaborators
 - Kimberly Kao
 - Stephanie De Leon
