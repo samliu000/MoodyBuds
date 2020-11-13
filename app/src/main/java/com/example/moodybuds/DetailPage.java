@@ -106,6 +106,7 @@ public class DetailPage extends AppCompatActivity {
                 startActivityForResult(openGalleryIntent, 1000);
             }
         });
+
     }
 
     @Override
