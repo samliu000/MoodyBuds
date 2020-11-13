@@ -170,7 +170,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="156dp"
-        android:layout_marginEnd="122dp"
+        android:layout_marginEnd="127dp"
         app:srcCompat="@drawable/ic_iconmonstr_smiley_6" />
 
     <ImageView
