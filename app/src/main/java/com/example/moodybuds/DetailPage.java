@@ -81,11 +81,15 @@ public class DetailPage extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userInfo = dataSnapshot.getValue(ProfileCard.class);
-                currUserName.setText(userInfo.getName());
-                currUserMoodBar.setProgress(userInfo.getRatingNumber());
-                currUserNeg.setText(userInfo.getNeg());
-                currUserPos.setText(userInfo.getPos());
-                currUserGrateful.setText(userInfo.getGrateful());
+                if(userInfo == null) {
+                    userInfo = new ProfileCard();
+                } else {
+                    currUserName.setText(userInfo.getName());
+                    currUserMoodBar.setProgress(userInfo.getRatingNumber());
+                    currUserNeg.setText(userInfo.getNeg());
+                    currUserPos.setText(userInfo.getPos());
+                    currUserGrateful.setText(userInfo.getGrateful());
+                }
             }
 
             @Override
